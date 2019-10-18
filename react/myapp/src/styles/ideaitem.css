@@ -1,0 +1,16 @@
+.ideaItem {
+  flex: 0 0 30%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.idea-name {
+  flex: 0 0 100%;
+}
+.idea-id {
+  flex: 0 0 100%;
+}
+.idea-description {
+  flex: 0 0 100%;
+}

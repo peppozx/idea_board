@@ -1,0 +1,13 @@
+.ideaWrapper {
+  flex: 0 0 70%;
+  margin-top: 50px;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.idea-item {
+  flex: 0 0 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}

@@ -1,0 +1,15 @@
+.myHeader {
+  flex: 0 0 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  font-family: Montserrat;
+  font-weight: 600;
+  font-size: 30px;
+  color: #ccc;
+  background-color: rgb(61, 50, 50);
+}
+
+.myHeader span {
+  padding: 30px 30px;
+}

@@ -1,0 +1,29 @@
+.myNavbar {
+  flex: 0 0 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.navbar-wrapper {
+  flex: 0 0 70%;
+}
+
+.new-idea {
+  padding: 25px 25px;
+  border-style: none;
+  background-color: blue;
+  color: #fff;
+  font-weight: 700;
+  width: 150px;
+}
+
+.save-all {
+  padding: 15px 15px;
+  border-style: none;
+  background-color: green;
+  color: #fff;
+  font-weight: 700;
+  width: 150px;
+  margin-left: 50px;
+}
