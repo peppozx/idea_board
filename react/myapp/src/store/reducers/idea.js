@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const INITIAL_STATE = {
   ideas: [
     {
@@ -29,6 +31,15 @@ function updateIdea(state, updatedIdea) {
   return newIdeas;
 }
 
+function saveIdeas(state) {
+  axios
+    .post("http://localhost:3500/api/ideas", state.ideas)
+    .then(res => res.data)
+    .then(data => {
+      console.log(data);
+    });
+}
+
 function idea(state = INITIAL_STATE, action) {
   switch (action.type) {
     case "SET_IDEA":
@@ -48,6 +59,16 @@ function idea(state = INITIAL_STATE, action) {
       return {
         ...state,
         ideas: [...newIdeas]
+      };
+      break;
+    case "SAVE_IDEAS":
+      saveIdeas(state);
+      return state;
+      break;
+    case "GET_IDEAS":
+      return {
+        ...state,
+        ideas: [...action.ideas.ideas]
       };
       break;
   }

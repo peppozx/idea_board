@@ -5,17 +5,31 @@ let ideas = [];
 
 router.get("/", (req, res) => {
   res.json({
-    status: 200,
-    working: "yeah"
+    ideas: ideas
   });
 });
 
 router.post("/", (req, res) => {
-  console.log("received psot ");
-  res.json({
-    status: 200,
-    working: "post, yeah"
-  });
+  const ideasToSave = req.body;
+  if (ideasToSave) {
+    ideas = ideasToSave;
+    console.log(ideas);
+    res.json({
+      status: 200,
+      ok: "ok"
+    });
+  }
+});
+
+router.post("/idea", (req, res) => {
+  const ideaToSave = req.body;
+  if (ideaToSave) {
+    ideas.push(ideaToSave);
+    res.json({
+      status: 200,
+      ok: "ok"
+    });
+  }
 });
 
 module.exports = router;

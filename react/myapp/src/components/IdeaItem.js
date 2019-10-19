@@ -38,7 +38,9 @@ function IdeaItem({ id, name, description, updateIdea }) {
         name="description"
         onChange={setThisIdea}
       />
-      <button onClick={updateThisIdea}>Save</button>
+      <button className="save-idea" onClick={updateThisIdea}>
+        Save
+      </button>
     </div>
   );
 }

@@ -11,3 +11,16 @@ export function updateIdea(updatedIdea) {
     updatedIdea
   };
 }
+
+export function saveIdeas() {
+  return {
+    type: "SAVE_IDEAS"
+  };
+}
+
+export function updateAll(ideas) {
+  return {
+    type: "GET_IDEAS",
+    ideas
+  };
+}

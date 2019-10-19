@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "../styles/navbar.css";
-import axios from "axios";
 
 import uuid from "uuid";
 
@@ -17,14 +16,7 @@ class Navbar extends Component {
     });
   };
   saveAll = () => {
-    axios
-      .post("http://localhost:3500/api/ideas", {
-        teste: "testador"
-      })
-      .then(res => res.data)
-      .then(data => {
-        console.log(data);
-      });
+    this.props.saveIdeas();
   };
   render() {
     return (
@@ -47,7 +39,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  setIdea: newIdea => dispatch(IdeaActions.setIdea(newIdea))
+  setIdea: newIdea => dispatch(IdeaActions.setIdea(newIdea)),
+  saveIdeas: () => dispatch(IdeaActions.saveIdeas())
 });
 
 export default connect(
