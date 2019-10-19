@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../styles/navbar.css";
+import axios from "axios";
 
 import uuid from "uuid";
 
@@ -15,6 +16,16 @@ class Navbar extends Component {
       description: "new idea description"
     });
   };
+  saveAll = () => {
+    axios
+      .post("http://localhost:3500/api/ideas", {
+        teste: "testador"
+      })
+      .then(res => res.data)
+      .then(data => {
+        console.log(data);
+      });
+  };
   render() {
     return (
       <div className="myNavbar">
@@ -22,7 +33,9 @@ class Navbar extends Component {
           <button className="new-idea" onClick={this.createIdea}>
             New Idea
           </button>
-          <button className="save-all">Save All</button>
+          <button className="save-all" onClick={this.saveAll}>
+            Save All
+          </button>
         </div>
       </div>
     );
