@@ -1,20 +1,52 @@
+* {
+  box-sizing: border-box;
+}
 .ideaItem {
+  position: relative;
   flex: 0 0 30%;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   margin-top: 30px;
+  height: 90px;
+  animation: animateOpacity 0.7s;
+}
+
+input {
+  border: none;
 }
 
 .idea-name {
   flex: 0 0 100%;
+  background-color: red;
+  padding: 10px 10px;
+  color: #cecece;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
-.idea-id {
-  flex: 0 0 100%;
+
+.delete-idea {
+  position: absolute;
+  right: 4px;
+  font-size: 17px;
+  cursor: pointer;
+  color: #fff;
 }
 .idea-description {
   flex: 0 0 100%;
+  background-color: blue;
+  padding: 10px 10px;
+  color: #cecece;
 }
 .save-idea {
   flex: 0 0 100%;
+}
+
+@keyframes animateOpacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

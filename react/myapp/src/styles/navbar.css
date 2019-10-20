@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 .myNavbar {
   flex: 0 0 100%;
   display: flex;
@@ -10,20 +13,22 @@
 }
 
 .new-idea {
-  padding: 25px 25px;
+  border-radius: 5px;
   border-style: none;
   background-color: blue;
   color: #fff;
   font-weight: 700;
   width: 150px;
+  height: 60px;
 }
 
 .save-all {
-  padding: 15px 15px;
+  border-radius: 5px;
   border-style: none;
   background-color: green;
   color: #fff;
   font-weight: 700;
   width: 150px;
-  margin-left: 50px;
+  height: 60px;
+  margin-left: 10px;
 }
