@@ -24,3 +24,10 @@ export function updateAll(ideas) {
     ideas
   };
 }
+
+export function deleteIdea(idea) {
+  return {
+    type: "DELETE_IDEA",
+    idea
+  };
+}

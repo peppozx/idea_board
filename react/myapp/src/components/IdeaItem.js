@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import "../styles/ideaitem.css";
+import axios from "axios";
 
 import { connect } from "react-redux";
 
 import * as IdeaActions from "../store/actions/idea";
 
-function IdeaItem({ id, name, description, updateIdea }) {
+function IdeaItem({ id, name, description, updateIdea, deleteIdea }) {
   const [idea, setIdea] = useState({
     id: id,
     name: name,
@@ -16,11 +17,19 @@ function IdeaItem({ id, name, description, updateIdea }) {
       ...idea,
       [e.target.name]: e.target.value
     });
-  };
-  const updateThisIdea = e => {
     updateIdea({
       ...idea
     });
+  };
+  const deleteThisIdea = () => {
+    axios
+      .post("http://localhost:3500/api/ideas/del", {
+        idea
+      })
+      .then(res => {
+        console.log(res);
+      });
+    deleteIdea(idea);
   };
   return (
     <div className="ideaItem" id={idea.id}>
@@ -38,9 +47,9 @@ function IdeaItem({ id, name, description, updateIdea }) {
         name="description"
         onChange={setThisIdea}
       />
-      <button className="save-idea" onClick={updateThisIdea}>
-        Save
-      </button>
+      <span className="delete-idea" onClick={deleteThisIdea}>
+        x
+      </span>
     </div>
   );
 }
@@ -50,7 +59,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  updateIdea: updatedIdea => dispatch(IdeaActions.updateIdea(updatedIdea))
+  updateIdea: updatedIdea => dispatch(IdeaActions.updateIdea(updatedIdea)),
+  deleteIdea: deletedIdea => dispatch(IdeaActions.deleteIdea(deletedIdea))
 });
 
 export default connect(

@@ -11,8 +11,8 @@ class Navbar extends Component {
   createIdea = () => {
     this.props.setIdea({
       id: uuid.v4(),
-      name: "new idea",
-      description: "new idea description"
+      name: "Idea",
+      description: "Description"
     });
   };
   saveAll = () => {
@@ -23,10 +23,10 @@ class Navbar extends Component {
       <div className="myNavbar">
         <div className="navbar-wrapper">
           <button className="new-idea" onClick={this.createIdea}>
-            New Idea
+            New
           </button>
           <button className="save-all" onClick={this.saveAll}>
-            Save All
+            Save
           </button>
         </div>
       </div>

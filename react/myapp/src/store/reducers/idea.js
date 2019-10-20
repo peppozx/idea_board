@@ -1,23 +1,7 @@
 import axios from "axios";
 
 const INITIAL_STATE = {
-  ideas: [
-    {
-      id: 1,
-      name: "Idea 1",
-      description: "Description of idea 1"
-    },
-    {
-      id: 2,
-      name: "Idea 2",
-      description: "Description of idea 2"
-    },
-    {
-      id: 3,
-      name: "Idea 3",
-      description: "Description of idea 3"
-    }
-  ]
+  ideas: []
 };
 
 function updateIdea(state, updatedIdea) {
@@ -63,12 +47,20 @@ function idea(state = INITIAL_STATE, action) {
       break;
     case "SAVE_IDEAS":
       saveIdeas(state);
-      return state;
       break;
     case "GET_IDEAS":
       return {
         ...state,
         ideas: [...action.ideas.ideas]
+      };
+      break;
+    case "DELETE_IDEA":
+      const ideasFiltered = state.ideas.filter(
+        idea => idea.id !== action.idea.id
+      );
+      return {
+        ...state,
+        ideas: [...ideasFiltered]
       };
       break;
   }
