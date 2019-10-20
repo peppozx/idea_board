@@ -21,6 +21,15 @@ router.post("/", (req, res) => {
   }
 });
 
+router.post("/del", (req, res) => {
+  const ideaToDelete = req.body.idea;
+  ideas = ideas.filter(idea => idea.id !== ideaToDelete.id);
+  res.json({
+    status: 200,
+    ok: "ok"
+  });
+});
+
 router.post("/idea", (req, res) => {
   const ideaToSave = req.body;
   if (ideaToSave) {
